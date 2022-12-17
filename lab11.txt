@@ -1,0 +1,28 @@
+inputFile= open("data.txt", "r")
+outputFile=open("sorted.txt", "w")
+
+for line in inputFile:
+    line.strip("\n")
+    lst=line.split()
+    sum=0
+    for i in (lst[1:len(lst)]):
+        sum=sum+int(i)
+    avg=sum/len(lst)-1
+    #print(avg)
+    if lst[0]=="UP" :
+        for i in lst[1:len(lst)]:
+            i=int(i)
+            if i>= avg:
+                print(str(i),"", end="", file=(outputFile))
+                print(i,"",  end="")
+        print("")
+    elif lst[0]=="DOWN":
+        for i in lst[1:len(lst)]:
+            i=int(i)
+            if i>= avg:
+                print(str(i),"", end="", file=(outputFile))
+                print(i,"", end="")
+        print()
+        
+inputFile.close()        
+outputFile.close()   
